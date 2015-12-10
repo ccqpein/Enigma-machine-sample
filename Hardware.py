@@ -20,14 +20,24 @@ class Rotors(object):
             self.originalKey.append(i)
 
         self.__rotorId__ = args[0]
+        self.__position__ = 0
         # print(self.originalKey)
         # print(self.originalDict)
 
-    def encrypt(self, string):
-        string = string.lower()
-        encryptDict = dict(zip(self.originalKey, self.originalDict))
+    def encrypting(self):  # can make a doEncrypt function, and use encrypt methon to change rotors
+        unoriginalDict = self.originalDict[self.__position__:]
+        unoriginalDict = unoriginalDict + self.originalDict[:self.__position__]
+        self.__position__ += 1
+#        print(unoriginalDict, self.__position__)
+        encryptDict = dict(zip(self.originalKey, unoriginalDict))
+        print(self. originalDict, unoriginalDict)
+        return encryptDict
 
+    def doEncrypt(self, string):
+        string = string.lower()
         encryptString = ""
+
+        encrypting(self)
         for i in string:
             try:
                 encryptString += encryptDict[i]
