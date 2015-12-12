@@ -30,20 +30,20 @@ class Rotors(object):
         self.__position__ += 1
 #        print(unoriginalDict, self.__position__)
         encryptDict = dict(zip(self.originalKey, unoriginalDict))
-        print(self. originalDict, unoriginalDict)
+#        print(self. originalDict, unoriginalDict, encrypting)
         return encryptDict
 
     def doEncrypt(self, string):
         string = string.lower()
         encryptString = ""
 
-        encrypting(self)
+#        self.encrypting()
+
         for i in string:
             try:
-                encryptString += encryptDict[i]
+                encryptString += self.encrypting()[i]
             except KeyError:
                 encryptString += i
-        print(encryptDict)
         return encryptString
 
 
