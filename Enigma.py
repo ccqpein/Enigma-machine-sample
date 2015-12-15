@@ -16,7 +16,7 @@ def buildEnigma():
 rotorChain, reflector = buildEnigma()
 
 
-def encryptProcess(string, position=0):
+def encryptProcess(string, position):
     global rotorChain, reflector
     for rotor in rotorChain:
         string = rotor.doEncrypt(string, position)
@@ -26,4 +26,14 @@ def encryptProcess(string, position=0):
     for rotor in reversed(rotorChain):
         string = rotor.doEncrypt(string, position)
 
-    return string
+    print(string)
+#    return string
+
+
+def encryptInput():
+    code = raw_input("put string want to code \n")
+    return code
+
+
+if __name__ == '__main__':
+    encryptProcess(encryptInput(), position=0)
