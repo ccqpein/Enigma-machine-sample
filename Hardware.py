@@ -24,24 +24,23 @@ class Rotors(object):
         # print(self.originalKey)
         # print(self.originalDict)
 
-    def encrypting(self):  # can make a doEncrypt function, and use encrypt methon to change rotors
-        unoriginalDict = self.originalDict[self.__position__:]
-        unoriginalDict = unoriginalDict + self.originalDict[:self.__position__]
-        self.__position__ += 1
+    def encrypting(self, position):
+        unoriginalDict = self.originalDict[position:]
+        unoriginalDict = unoriginalDict + self.originalDict[:position]
+#        self.__position__ += 1
 #        print(unoriginalDict, self.__position__)
         encryptDict = dict(zip(self.originalKey, unoriginalDict))
 #        print(self. originalDict, unoriginalDict, encrypting)
         return encryptDict
 
-    def doEncrypt(self, string):
+    def doEncrypt(self, string, position=0):
         string = string.lower()
         encryptString = ""
 
-#        self.encrypting()
-
         for i in string:
             try:
-                encryptString += self.encrypting()[i]
+                encryptString += self.encrypting(position)[i]
+                position += 1
             except KeyError:
                 encryptString += i
         return encryptString
@@ -68,5 +67,5 @@ class Reflector(object):
                 encryptString += encryptDict[i]
             except KeyError:
                 encryptString += i
-        print(encryptDict)
+#        print(encryptDict)
         return encryptString

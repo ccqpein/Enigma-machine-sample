@@ -16,15 +16,15 @@ def buildEnigma():
 rotorChain, reflector = buildEnigma()
 
 
-def encryptProcess(string):
+def encryptProcess(string, position=0):
     global rotorChain, reflector
     for rotor in rotorChain:
-        string = rotor.encrypt(string)
+        string = rotor.doEncrypt(string, position)
 
     string = reflector.encrypt(string)
 
     for rotor in reversed(rotorChain):
-        string = rotor.encrypt(string)
+        string = rotor.doEncrypt(string, position)
 
-    print(string)
+#    print(string)
     return string
