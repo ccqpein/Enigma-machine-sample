@@ -20,17 +20,12 @@ class Rotors(object):
             self.originalKey.append(i)
 
         self.__rotorId__ = args[0]
-        self.__position__ = 0
-        # print(self.originalKey)
-        # print(self.originalDict)
+#        self.__position__ = 0
 
     def encrypting(self, position):
         unoriginalDict = self.originalDict[position:]
         unoriginalDict = unoriginalDict + self.originalDict[:position]
-#        self.__position__ += 1
-#        print(unoriginalDict, self.__position__)
         encryptDict = dict(zip(self.originalKey, unoriginalDict))
-#        print(self. originalDict, unoriginalDict, encrypting)
         return encryptDict
 
     def doEncrypt(self, string, position=0):
@@ -67,5 +62,4 @@ class Reflector(object):
                 encryptString += encryptDict[i]
             except KeyError:
                 encryptString += i
-#        print(encryptDict)
         return encryptString

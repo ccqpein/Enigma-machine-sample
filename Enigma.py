@@ -26,5 +26,4 @@ def encryptProcess(string, position=0):
     for rotor in reversed(rotorChain):
         string = rotor.doEncrypt(string, position)
 
-#    print(string)
     return string
