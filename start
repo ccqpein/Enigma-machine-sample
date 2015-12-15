@@ -1,0 +1,5 @@
+#! /usr/local/bin/zsh
+#! /bin/sh
+#! /bin/bash
+
+python ./Enigma.py 
